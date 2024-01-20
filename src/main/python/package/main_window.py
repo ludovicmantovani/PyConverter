@@ -1,5 +1,6 @@
 from functools import partial
 
+from PySide2.QtCore import Qt
 from PySide2.QtWidgets import QWidget, QLabel, QSpinBox, QLineEdit, QPushButton, QListWidget, QGridLayout
 
 
@@ -34,6 +35,22 @@ class MainWindow(QWidget):
         if style_file:
             with open(style_file, "r") as f:
                 self.setStyleSheet(f.read())
+
+        # Alignment
+        self.spn_quality.setAlignment(Qt.AlignRight)
+        self.spn_size.setAlignment(Qt.AlignRight)
+        self.le_dossier_out.setAlignment(Qt.AlignRight)
+
+        # Range
+        self.spn_quality.setRange(1, 100)
+        self.spn_quality.setValue(75)
+        self.spn_size.setRange(1, 100)
+        self.spn_size.setValue(75)
+
+        # Divers
+        self.le_dossier_out.setPlaceholderText("Dossier de sortie...")
+        self.le_dossier_out.setText("reduced")
+        self.lbl_drop_info.setVisible(False)
 
     def create_layouts(self):
         self.main_layout = QGridLayout(self)

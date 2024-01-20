@@ -18,7 +18,7 @@ CONTEXT = {
 if __name__ == '__main__':
     app = QApplication()
     window = MainWindow(CONTEXT)
-    window.resize(1500, 600)
+    window.resize(1920 / 4, 1200 / 2)
     window.show()
     exit_code = app.exec_()
     sys.exit(exit_code)
