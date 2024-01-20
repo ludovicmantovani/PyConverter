@@ -52,6 +52,8 @@ class MainWindow(QWidget):
         self.le_dossier_out.setText("reduced")
         self.lbl_drop_info.setVisible(False)
 
+        self.setAcceptDrops(True)
+
     def create_layouts(self):
         self.main_layout = QGridLayout(self)
 
@@ -68,3 +70,16 @@ class MainWindow(QWidget):
 
     def setup_connections(self):
         pass
+
+    def dragEnterEvent(self, event):
+        self.lbl_drop_info.setVisible(True)
+        event.accept()
+
+    def dragLeaveEvent(self, event):
+        self.lbl_drop_info.setVisible(False)
+
+    def dropEvent(self, event):
+        self.lbl_drop_info.setVisible(False)
+        event.accept()
+        for url in event.mimeData().urls():
+            self.lw_files.addItem(url.toLocalFile())
