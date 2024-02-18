@@ -1,8 +1,12 @@
----
-
 # PyConverter
 
 PyConverter is a Python tool designed to bulk resize images while maintaining acceptable quality.
+
+---
+
+## Screenshot
+
+![Application screenshot](https://github.com/ludovicmantovani/PyConverter/blob/master/doc/img/screenshot01.png)
 
 ---
 
